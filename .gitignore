@@ -1,0 +1,24 @@
+# Compiled binaries and libraries
+dawn
+src/*.o
+src/dawn
+*.so
+*.a
+
+# Game runtime logs & temp data
+logs/
+*.log
+
+# Player files and sensitive accounts (keep these local)
+player/
+gods/
+
+# System runtime state
+system/gamestat.txt
+
+# Editor / OS temporary files
+*~
+*.swp
+*.bak
+.DS_Store
+Thumbs.db.bash_history

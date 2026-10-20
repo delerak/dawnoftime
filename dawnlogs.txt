@@ -1,0 +1,46 @@
+[3206] Tue Oct 13 16:59:50 :: ============================================
+[3206] Tue Oct 13 16:59:50 :: dawn logging to logs/game/4000-261013-01.log
+[3288] Tue Oct 13 17:02:58 :: ============================================
+[3288] Tue Oct 13 17:02:58 :: dawn logging to logs/game/4000-261013-02.log
+[3489] Tue Oct 13 17:06:56 :: ============================================
+[3489] Tue Oct 13 17:06:56 :: dawn logging to logs/game/4000-261013-03.log
+[3547] Tue Oct 13 17:08:49 :: ============================================
+[3547] Tue Oct 13 17:08:49 :: dawn logging to logs/game/4000-261013-04.log
+[3692] Tue Oct 13 17:10:03 :: ============================================
+[3692] Tue Oct 13 17:10:03 :: dawn logging to logs/game/4000-261013-05.log
+[3911] Tue Oct 13 17:10:30 :: ============================================
+[3911] Tue Oct 13 17:10:30 :: dawn logging to logs/game/4000-261013-06.log
+[3959] Tue Oct 13 17:13:44 :: ============================================
+[3959] Tue Oct 13 17:13:44 :: dawn logging to logs/game/4000-261013-07.log
+[3986] Tue Oct 13 17:14:02 :: ============================================
+[3986] Tue Oct 13 17:14:02 :: dawn logging to logs/game/4000-261013-08.log
+[3997] Tue Oct 13 17:15:06 :: ============================================
+[3997] Tue Oct 13 17:15:06 :: dawn logging to logs/game/4000-261013-09.log
+[4576] Tue Oct 13 17:16:43 :: ============================================
+[4576] Tue Oct 13 17:16:43 :: dawn logging to logs/game/4000-261013-10.log
+[4606] Tue Oct 13 17:17:20 :: ============================================
+[4606] Tue Oct 13 17:17:20 :: dawn logging to logs/game/4000-261013-11.log
+[5391] Wed Oct 14 08:39:18 :: ============================================
+[5391] Wed Oct 14 08:39:18 :: dawn logging to logs/game/4000-261014-01.log
+[5415] Wed Oct 14 08:39:32 :: ============================================
+[5415] Wed Oct 14 08:39:32 :: dawn logging to logs/game/4000-261014-02.log
+[6071] Wed Oct 14 08:43:10 :: ============================================
+[6071] Wed Oct 14 08:43:10 :: dawn logging to logs/game/4000-261014-03.log
+[6098] Wed Oct 14 08:43:26 :: ============================================
+[6098] Wed Oct 14 08:43:26 :: dawn logging to logs/game/4000-261014-04.log
+[6701] Wed Oct 14 08:47:49 :: ============================================
+[6701] Wed Oct 14 08:47:49 :: dawn logging to logs/game/4000-261014-05.log
+[6725] Wed Oct 14 08:47:58 :: ============================================
+[6725] Wed Oct 14 08:47:58 :: dawn logging to logs/game/4000-261014-06.log
+[8297] Wed Oct 14 09:01:24 :: ============================================
+[8297] Wed Oct 14 09:01:24 :: dawn logging to logs/game/4000-261014-07.log
+[8297] Wed Oct 14 09:01:24 :: dawn bindings resolver: [contype='telnet' protocol='ipv4' address='0.0.0.0' port='4000'][contype='telnet' protocol='ipv4' address='0.0.0.0' port='4000'][contype='http' protocol='ipv4' address='0.0.0.0' port='4001']
+[8327] Wed Oct 14 09:02:37 :: ============================================
+[8327] Wed Oct 14 09:02:37 :: dawn logging to logs/game/4000-261014-08.log
+[8327] Wed Oct 14 09:02:37 :: dawn bindings (Finished) [39151] an olive skinned male faerie in [39168] DomesticaLated DaLLarLLings: west (west)`1======INPUTTAIL LOG`1No inputtail data to dump`1`x-= Dawn v1.69r based mud on SamsungBook1984 was last compiled on Oct 14 2026 at 09:01:14 (c++ build)=-`1`x[contype='telnet' protocol='ipv4' address='0.0.0.0' port='4000'][contype='telnet' protocol='ipv4' address='0.0.0.0' port='4000'][contype='http' protocol='ipv4' address='0.0.0.0' port='4001']
+[1896] Mon Oct 19 18:09:48 :: ============================================
+[1896] Mon Oct 19 18:09:48 :: dawn logging to logs/game/4000-261019-01.log
+[1896] Mon Oct 19 18:09:49 :: dawn bindings resolver: [contype='telnet' protocol='ipv4' address='0.0.0.0' port='4000'][contype='telnet' protocol='ipv4' address='0.0.0.0' port='4000'][contype='http' protocol='ipv4' address='0.0.0.0' port='4001']
+[2520] Mon Oct 19 18:21:14 :: ============================================
+[2520] Mon Oct 19 18:21:14 :: dawn logging to logs/game/4000-261019-02.log
+[2520] Mon Oct 19 18:21:15 :: dawn bindings (Finished) [39151] an olive skinned male faerie in [39168] DomesticaLated DaLLarLLings: west (west)`1======INPUTTAIL LOG`1No inputtail data to dump`1`x-= Dawn v1.69r based mud on SamsungBook1984 was last compiled on Oct 19 2026 at 18:09:37 (c++ build)=-`1`x[contype='telnet' protocol='ipv4' address='0.0.0.0' port='4000'][contype='telnet' protocol='ipv4' address='0.0.0.0' port='4000'][contype='http' protocol='ipv4' address='0.0.0.0' port='4001']

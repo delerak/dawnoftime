@@ -1,0 +1,6 @@
+sex neutral~
+Race  unknown~
+Class  mage~
+END
+
+EOF~
