@@ -3078,244 +3078,98 @@ void nanny( connection_data *d, char *argument )
 // Parse a name for acceptability.
 bool check_parse_name( char *name )
 {
-	// Reserved words.
-    if(is_name( name, "auto someone something the you new self system dawnftp mudftp" ))
-		return false;
-
-	// some potentially offensive/inappropriate names in hex :)
-	if(is_name_infix( name, 
-		"\x66\x75\x63\x6b \x70\x68\x75\x63\x6b \x66\x75\x6b \x70\x68\x75\x6b "
-		"\x73\x68\x69\x74 \x64\x61\x6d\x6e \x63\x6f\x63\x6b \x63\x75\x6e\x74 "
-		"\x62\x6c\x6f\x77\x6a\x6f\x62 \x61\x73\x73\x68\x6f\x6c\x65 "
-		"\x70\x75\x73\x73\x79 \x6a\x65\x73\x75\x73 \x67\x6f\x64 "
-		"\x61\x6e\x67\x65\x6c \x73\x61\x74\x61\x6e "
-		"\x6c\x75\x63\x69\x66\x69\x65\x72 \x64\x65\x6d\x6f\x6e "
-		"\x6f\x73\x61\x6d\x61 \x73\x61\x64\x61\x61\x6d"))
-	{
-		return false;
-	}
-
-	// just plain unoriginal/possibly intending to offend  
-	if(is_name( name, 
-		"merlin gandolf gandalf hero takhisis paladine majere morgion glarth "
-		"trispringer chemosh zivilyn alexander belrak death angel bozo stupid "
-		"beavis butthead mohammed mohammad buffy willow zander doom slayer rules rulez "
-		"bauhaus lunitari solinari nuitari devil yugi anime penis assmunch "
-		"kiri-jolith mishakal habbakuk branchala gilean sirrion reorx "
-		"chislev shinare sargonnas zeboim hiddukel trinity morpheus "
-		"blitz blytz budda buddah garlo blah blood buto cypher neo sliver "
-		"alaric deity genocide freedalis gremlic hack hate king knight "
-		"baron lord count prince princess darth vader lestat night zero "
-		"victor viktor vashiva dashiva tinkle tanis sanctus rhuid rude"))
+    // Reserved words.
+    if(is_name( name, "auto someone something the you new self system dawnftp mudftp" )) {
+        logf("check_parse_name rejected '%s': reserved words list", name);
         return false;
-
-    // reference names
-	if(is_name( "none", name))	// none - used by olc
-        return false;
-    if(is_name( "self", name))	// self - used to reference self
-        return false;
-    if(is_name( "all",  name))	// everyone in the game
-        return false;
-    if(is_name( "system", name))
-        return false;
-
-	// council related names
-	if(is_exact_name( "council", name ))
-		return false;
-
-	// next loop thru all the council names as defined in council_flags[]
-	// admin can read all those notes
-	{
-		int index;
-
-		for(index = 0; !IS_NULLSTR(council_flags[index].name); index++)
-		{
-			if(is_exact_name( council_flags[index].name, name )){
-				return false;
-			}
-		}
-	}
-
-	// next few are for allowing notes to certain groups 
-    if(is_name( "imm", name))				// immortals
-        return false;
-
-    if(is_name( "hero", name))			// heros
-        return false;
-
-    if(is_name( "heros", name))			// heros
-        return false;
-
-    if(is_name( "nsupport", name))		// newbie support
-        return false;
-
-    if(is_name( "head", name))			// head of departments
-        return false;
-
-    if(is_name( "noble", name))			// nobles 
-        return false;
-	
-    if(is_name( "admin", name))			// administrators 
-        return false;
-
-	if(is_name( "imp", name))				// implementors
-		return false;
-
-	if(is_name( "rpsupport", name))		// role playing support
-		return false;
-
-    if(is_name( "olc", name))				// olc note group security >4
-        return false;
-
-    if(is_name( "build", name))			// olc note group security >0
-        return false;
-
-    if(is_name( "nsupport", name))		// newbie support
-        return false;
-
-	if(is_name( "bard", name ))			// bards, for notes to bard
-		return false;
-
-	if(is_name( "karn", name))			// karns 
-        return false;
-
-	// can't be named after clans
-	if(clan_nlookup(name) != NULL)
-		return false;
-
-	// can't be named after a race
-	if(race_exact_lookup(name) != NULL){
-		return false;
-	}
-
-	// can't be named after a class
-	if(class_exact_lookup(name) != NULL){
-		return false;
-	}
-
-    // Length restrictions.    
-    if(str_len(name) <= 2 )
-		return false;
-
-    if(str_len(name)>12)
-		return false;
-
-	if(name_confirmed)
-		return true;	
-
-    //  player specific 
-	if(is_name( "kal", name))				// kalahn
-        return false;
-	if(is_name_infix( name, "alahn elahn alehn elehn nhala"))	// kalahn
-        return false;
-
-	if(is_name( "yle", name))			// ylerin
-        return false;
-
-	if(is_name( "quox", name))		    // quoxatyl
-        return false;
-
-    if(is_name( "reav", name))			// reave
-        return false;
-
-	if(is_name( "imi", name))			// imidazole
-        return false;
-
-	 // Alphanumerics only.
-     // Lock out IllIll twits.
-	{
-		char *pc;
-		bool fIll,adjcaps = false,cleancaps = false;
-		int total_caps = 0;
-		
-		fIll = true;
-		for( pc = name; *pc != '\0'; pc++ )
-		{
-			if(!is_alpha(*pc) && *pc!='-')
-				return false;
-			
-			if(is_upper(*pc)) // ugly anti-caps hack 
-			{
-				if(adjcaps)
-					cleancaps = true;
-				total_caps++;
-				adjcaps = true;
-			}
-			else
-				adjcaps = false;
-			
-			if(LOWER(*pc) != 'i' && LOWER(*pc) != 'l' )
-				fIll = false;
-		}
-		
-		if(fIll )
-			return false;
-		
-		if(cleancaps || (total_caps > (int) (str_len(name) / 2) && str_len(name) < 3))
-			return false;
     }
 
-    // Prevent players from naming themselves after mobs.
+    if(is_name_infix( name, 
+        "\x66\x75\x63\x6b \x70\x68\x75\x63\x6b \x66\x75\x6b \x70\x68\x75\x6b "
+        "\x73\x68\x69\x74 \x64\x61\x6d\x6e \x63\x6f\x63\x6b \x63\x75\x6e\x74 "
+        "\x62\x6c\x6f\x77\x6a\x6f\x62 \x61\x73\x73\x68\x6f\x6c\x65 "
+        "\x70\x75\x73\x73\x79 \x6a\x65\x73\x75\x73 \x67\x6f\x64 "
+        "\x61\x6e\x67\x65\x6c \x73\x61\x74\x61\x6e "
+        "\x6c\x75\x63\x69\x66\x69\x65\x72 \x64\x65\x6d\x6f\x6e "
+        "\x6f\x73\x61\x6d\x61 \x73\x61\x64\x61\x61\x6d"))
     {
-		extern MOB_INDEX_DATA *mob_index_hash[MAX_KEY_HASH];
-		MOB_INDEX_DATA *pMobIndex;
-		int iHash;
-
-		for( iHash = 0; iHash < MAX_KEY_HASH; iHash++ )
-		{
-			for( pMobIndex  = mob_index_hash[iHash];
-			  pMobIndex != NULL;
-			  pMobIndex  = pMobIndex->next )
-			{
-			if(is_name( name, pMobIndex->player_name ) )
-				return false;
-			}
-		}
+        logf("check_parse_name rejected '%s': offensive hex list", name);
+        return false;
     }
-   
-	{
-     // Prevent players from naming themselves after pkilled players
-		FILE* file;
-		char buf[MSL];
 
-		sprintf(buf, "%s%s", DEAD_DIR, name);
-		fclose(fpReserve);		 // close the reserve file 
-		file = fopen (buf, "r"); // attempt to to open pkilled pfile 
-		if(file)
-		{
-			fclose(file);
-    		fpReserve = fopen( NULL_FILE, "r" ); 
-			return false;		
-		}
-   		fpReserve = fopen( NULL_FILE, "r" );  // reopen the reserve file
-	}
+    if(is_name( name, 
+        "merlin gandolf gandalf hero takhisis paladine majere morgion glarth "
+        "trispringer chemosh zivilyn alexander belrak death angel bozo stupid "
+        "beavis butthead mohammed mohammad buffy willow zander doom slayer rules rulez "
+        "bauhaus lunitari solinari nuitari devil yugi anime penis assmunch "
+        "kiri-jolith mishakal habbakuk branchala gilean sirrion reorx "
+        "chislev shinare sargonnas zeboim hiddukel trinity morpheus "
+        "blitz blytz budda buddah garlo blah blood buto cypher neo sliver "
+        "alaric deity genocide freedalis gremlic hack hate king knight "
+        "baron lord count prince princess darth vader lestat night zero "
+        "victor viktor vashiva dashiva tinkle tanis sanctus rhuid rude"))
+    {
+        logf("check_parse_name rejected '%s': unoriginal list", name);
+        return false;
+    }
 
-    // Prevent players from naming themselves after deleted players
-	if(file_existsf("%s%s", DELETE_DIR, pfile_filename(name))){
-		return false;
-	}
+    // Fix inverted argument order: is_exact_name( needle, haystack )
+    if(is_exact_name( name, "none self all system imm hero heros nsupport head noble admin imp rpsupport olc build bard karn kal yle quox reav imi council" )) {
+        logf("check_parse_name rejected '%s': administrative / role word list", name);
+        return false;
+    }
 
-    // Prevent players from naming themselves after dead players
-	if(file_existsf("%s%s", DEAD_DIR, pfile_filename(name))){
-		return false;
-	}
+    if(clan_nlookup(name) != NULL) {
+        logf("check_parse_name rejected '%s': clan name match", name);
+        return false;
+    }
 
-	// Prevent players from naming themselves after builders and credits 
-	// on the arealist
-	if(GAMESETTING5(GAMESET5_PREVENT_PLAYERS_NAMING_AFTER_AREALIST_NAMES)){
-		for ( AREA_DATA *pArea = area_levelsort_first; pArea; pArea = pArea->levelsort_next)
-		{
-			if(IS_NULLSTR(pArea->credits)){
-				if(is_exact_name( name, pArea->builders)){
-					return false;
-				}
-			}else{
-				if(is_exact_name( name, pArea->credits)){
-					return false;
-				}
-			}
-		}
-	}
+    if(race_exact_lookup(name) >= 0) {
+        logf("check_parse_name rejected '%s': race name match", name);
+        return false;
+    }
+
+    if(class_exact_lookup(name) >= 0) {
+        logf("check_parse_name rejected '%s': class name match", name);
+        return false;
+    }
+
+    if(str_len(name) <= 2 || str_len(name) > 12) {
+        logf("check_parse_name rejected '%s': length bounds (%d)", name, (int)str_len(name));
+        return false;
+    }
+
+    // Mob index collision
+    {
+        extern MOB_INDEX_DATA *mob_index_hash[MAX_KEY_HASH];
+        MOB_INDEX_DATA *pMobIndex;
+        int iHash;
+
+        for( iHash = 0; iHash < MAX_KEY_HASH; iHash++ )
+        {
+            for( pMobIndex = mob_index_hash[iHash]; pMobIndex != NULL; pMobIndex = pMobIndex->next )
+            {
+                if(is_exact_name( name, pMobIndex->player_name ) )
+                {
+                    logf("check_parse_name rejected '%s': matched mob vnum %d (%s)", 
+                        name, pMobIndex->vnum, pMobIndex->player_name);
+                    return false;
+                }
+            }
+        }
+    }
+
+    // Dead/Deleted/Pkill checks
+    if(file_existsf("%s%s", DELETE_DIR, pfile_filename(name))) {
+        logf("check_parse_name rejected '%s': found in DELETE_DIR", name);
+        return false;
+    }
+
+    if(file_existsf("%s%s", DEAD_DIR, pfile_filename(name))) {
+        logf("check_parse_name rejected '%s': found in DEAD_DIR", name);
+        return false;
+    }
+
     return true;
 }
 
