@@ -1,3 +1,25 @@
+name Delerak~
+id 1792528480
+know_index 10
+lastonflags online automap using_msp allowimmtalk mccp~
+sex male~
+trust 100
+security 9
+played 332
+logout_room 7370
+Race  human~
+Class  warrior~
+xp 1000
+short_descr a male human~
+terminal_type MUDLET~
+silver 1000
+host[0] localhost~
+ip[0] 127.0.0.1~
+level[0] 100
+on[0] 1793052811
+off[0] 1793053527
+END
+
 sex neutral~
 Race  unknown~
 Class  mage~

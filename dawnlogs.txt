@@ -44,3 +44,25 @@
 [2520] Mon Oct 19 18:21:14 :: ============================================
 [2520] Mon Oct 19 18:21:14 :: dawn logging to logs/game/4000-261019-02.log
 [2520] Mon Oct 19 18:21:15 :: dawn bindings (Finished) [39151] an olive skinned male faerie in [39168] DomesticaLated DaLLarLLings: west (west)`1======INPUTTAIL LOG`1No inputtail data to dump`1`x-= Dawn v1.69r based mud on SamsungBook1984 was last compiled on Oct 19 2026 at 18:09:37 (c++ build)=-`1`x[contype='telnet' protocol='ipv4' address='0.0.0.0' port='4000'][contype='telnet' protocol='ipv4' address='0.0.0.0' port='4000'][contype='http' protocol='ipv4' address='0.0.0.0' port='4001']
+[2036] Tue Oct 20 16:16:59 :: ============================================
+[2036] Tue Oct 20 16:16:59 :: dawn logging to logs/game/4400-261020-01.log
+[2036] Tue Oct 20 16:17:00 :: dawn bindings resolver: [contype='telnet' protocol='ipv4' address='0.0.0.0' port='4400'][contype='telnet' protocol='ipv4' address='0.0.0.0' port='4400'][contype='http' protocol='ipv4' address='0.0.0.0' port='4401']
+[2054] Tue Oct 20 16:17:28 :: ============================================
+[2054] Tue Oct 20 16:17:28 :: dawn logging to logs/game/4000-261020-01.log
+[2054] Tue Oct 20 16:17:29 :: dawn bindings resolver: [contype='telnet' protocol='ipv4' address='0.0.0.0' port='4000'][contype='telnet' protocol='ipv4' address='0.0.0.0' port='4000'][contype='http' protocol='ipv4' address='0.0.0.0' port='4001']
+[2376] Tue Oct 20 16:28:51 :: ============================================
+[2376] Tue Oct 20 16:28:51 :: dawn logging to logs/game/4000-261020-02.log
+[2376] Tue Oct 20 16:28:52 :: dawn bindings resolver: [contype='telnet' protocol='ipv4' address='0.0.0.0' port='4000'][contype='telnet' protocol='ipv4' address='0.0.0.0' port='4000'][contype='http' protocol='ipv4' address='0.0.0.0' port='4001']
+[2752] Tue Oct 20 16:33:59 :: ============================================
+[2752] Tue Oct 20 16:33:59 :: dawn logging to logs/game/4000-261020-03.log
+[2864] Tue Oct 20 16:34:31 :: ============================================
+[2864] Tue Oct 20 16:34:31 :: dawn logging to logs/game/4000-261020-04.log
+[2864] Tue Oct 20 16:34:31 :: dawn bindings resolver: [contype='telnet' protocol='ipv4' address='0.0.0.0' port='4000'][contype='telnet' protocol='ipv4' address='0.0.0.0' port='4000'][contype='http' protocol='ipv4' address='0.0.0.0' port='4001']
+[571] Mon Oct 26 18:03:43 :: ============================================
+[571] Mon Oct 26 18:03:43 :: dawn logging to logs/game/4000-261026-01.log
+[571] Mon Oct 26 18:03:44 :: dawn bindings resolver: [contype='telnet' protocol='ipv4' address='0.0.0.0' port='4000'][contype='telnet' protocol='ipv4' address='0.0.0.0' port='4000'][contype='http' protocol='ipv4' address='0.0.0.0' port='4001']
+[741] Mon Oct 26 18:06:13 :: ============================================
+[741] Mon Oct 26 18:06:13 :: dawn logging to logs/game/4000-261026-02.log
+[851] Mon Oct 26 18:06:45 :: ============================================
+[851] Mon Oct 26 18:06:45 :: dawn logging to logs/game/4000-261026-03.log
+[851] Mon Oct 26 18:06:45 :: dawn bindings resolver: [contype='telnet' protocol='ipv4' address='0.0.0.0' port='4000'][contype='telnet' protocol='ipv4' address='0.0.0.0' port='4000'][contype='http' protocol='ipv4' address='0.0.0.0' port='4001']
